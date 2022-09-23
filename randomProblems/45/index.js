@@ -1,32 +1,18 @@
 
-
 const jump = (arr) => {
-    let count = 0
-    let i = 0   
-    if (arr.length === 1) return count
+    let result = 0, oldMax = 0, max = 0
 
-    while (i < arr.length) {
-        const val = arr[i]
-        let max = 0
-        let index = 1
+    for (let i = 0; i < arr.length - 1; i++) {
+        max = Math.max(max, arr[i] + i)
 
-        
-        for (let j = 1; j <= val; j++) {
-            if (max < arr[i + j]) {
-                max = arr[i + j]
-                index = j + i 
-            }
+        if (i === oldMax) {
+            result++
+            oldMax = max
         }
-        
-        count++
-        if (i + val >= arr.length - 1) return count
-        
-        i += index
     }
 
-    return count
+    return result
 }
 
-
-const arr = [1,1,1,1]
+const arr = [1,2,1,1,1]
 console.log(jump(arr))
