@@ -15,11 +15,11 @@ const reverseVowels = (str) => {
             right--
             continue
         }
-        
-        [arr[left], arr[right]] = [arr[right], arr[left]]    
+
+        [arr[left], arr[right]] = [arr[right], arr[left]]
         left++
         right--
-    } 
+    }
 
     return arr.join('')
 }
